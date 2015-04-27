@@ -66,6 +66,7 @@
 				<ITEM NAME="res_partner" VALUE="res.partner" />
 				<ITEM NAME="res_partner_bank" VALUE="res.partner.bank" />
 				<ITEM NAME="sale_order" VALUE="sale.order" />
+				<ITEM NAME="product_product" VALUE="product.product" />
 				<ITEM NAME="custom" VALUE="custom" />
 			</ITEMS>
 		</PARAMETER>
@@ -189,11 +190,11 @@
 <COLUMN KEY="false" LENGTH="255" NAME="categ_ids"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="client_order_ref"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="company_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="create_date"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="create_date"  NULLABLE="false" TYPE="id_Date"/>
 <COLUMN KEY="false" LENGTH="255" NAME="create_uid"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="currency_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="date_confirm"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="date_order"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="date_confirm"  NULLABLE="false" TYPE="id_Date"/>
+<COLUMN KEY="false" LENGTH="255" NAME="date_order"  NULLABLE="false" TYPE="id_Date"/>
 <COLUMN KEY="false" LENGTH="255" NAME="fiscal_position"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="id"  NULLABLE="false" TYPE="id_Integer"/>
 <COLUMN KEY="false" LENGTH="255" NAME="incoterm"  NULLABLE="false" TYPE="id_String"/>
@@ -205,35 +206,75 @@
 <COLUMN KEY="false" LENGTH="255" NAME="message_follower_ids"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="message_ids"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="message_is_follower"  NULLABLE="false" TYPE="id_Boolean"/>
-<COLUMN KEY="false" LENGTH="255" NAME="message_last_post"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_last_post"  NULLABLE="false" TYPE="id_Date"/>
 <COLUMN KEY="false" LENGTH="255" NAME="message_summary"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="message_unread"  NULLABLE="false" TYPE="id_Boolean"/>
 <COLUMN KEY="false" LENGTH="255" NAME="name"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="note"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="order_line"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="order_line"  NULLABLE="false" TYPE="id_Integer"/>
 <COLUMN KEY="false" LENGTH="255" NAME="order_policy"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="origin"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="partner_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="partner_invoice_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="partner_shipping_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="partner_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="partner_invoice_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="partner_shipping_id"  NULLABLE="false" TYPE="id_Integer"/>
 <COLUMN KEY="false" LENGTH="255" NAME="payment_term"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="paypal_url"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="picking_ids"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="picking_policy"  NULLABLE="false" TYPE="id_String"/>
 <COLUMN KEY="false" LENGTH="255" NAME="portal_payment_options"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="pricelist_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="procurement_group_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="project_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="section_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="pricelist_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="procurement_group_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="project_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="section_id"  NULLABLE="false" TYPE="id_Integer"/>
 <COLUMN KEY="false" LENGTH="255" NAME="shipped"  NULLABLE="false" TYPE="id_Boolean"/>
-<COLUMN KEY="false" LENGTH="255" NAME="source_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="source_id"  NULLABLE="false" TYPE="id_Integer"/>
 <COLUMN KEY="false" LENGTH="255" NAME="state"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="user_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="warehouse_id"  NULLABLE="false" TYPE="id_String"/>
-<COLUMN KEY="false" LENGTH="255" NAME="write_date"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="user_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="warehouse_id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="write_date"  NULLABLE="false" TYPE="id_Date"/>
 <COLUMN KEY="false" LENGTH="255" NAME="write_uid"  NULLABLE="false" TYPE="id_String"/>
 
 			</TABLE>
+			<TABLE IF="(MODEL_70=='product_product')">
+			<COLUMN KEY="false" LENGTH="255" NAME="active"  NULLABLE="false" TYPE="id_Boolean"/>
+<COLUMN KEY="false" LENGTH="255" NAME="attribute_value_ids"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="code"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="create_date"  NULLABLE="false" TYPE="id_Date"/>
+<COLUMN KEY="false" LENGTH="255" NAME="create_uid"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="default_code"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="delivery_count"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="ean13"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="id"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="image"  NULLABLE="false" TYPE="id_Object"/>
+<COLUMN KEY="false" LENGTH="255" NAME="image_medium"  NULLABLE="false" TYPE="id_Object"/>
+<COLUMN KEY="false" LENGTH="255" NAME="image_small"  NULLABLE="false" TYPE="id_Object"/>
+<COLUMN KEY="false" LENGTH="255" NAME="image_variant"  NULLABLE="false" TYPE="id_Object"/>
+<COLUMN KEY="false" LENGTH="255" NAME="incoming_qty"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="location_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="lst_price"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_follower_ids"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_ids"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_is_follower"  NULLABLE="false" TYPE="id_Boolean"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_last_post"  NULLABLE="false" TYPE="id_Date"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_summary"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="message_unread"  NULLABLE="false" TYPE="id_Boolean"/>
+<COLUMN KEY="false" LENGTH="255" NAME="name_template"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="orderpoint_ids"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="outgoing_qty"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="partner_ref"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="price"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="price_extra"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="product_tmpl_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="purchase_count"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="qty_available"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="qty_available_text"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="reception_count"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="sales_count"  NULLABLE="false" TYPE="id_Integer"/>
+<COLUMN KEY="false" LENGTH="255" NAME="virtual_available"  NULLABLE="false" TYPE="id_Double"/>
+<COLUMN KEY="false" LENGTH="255" NAME="warehouse_id"  NULLABLE="false" TYPE="id_String"/>
+<COLUMN KEY="false" LENGTH="255" NAME="write_date"  NULLABLE="false" TYPE="id_Date"/>
+<COLUMN KEY="false" LENGTH="255" NAME="write_uid"  NULLABLE="false" TYPE="id_String"/>
+</TABLE>
 		</PARAMETER>
 						
 	</PARAMETERS>
